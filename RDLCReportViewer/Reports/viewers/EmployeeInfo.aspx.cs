@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using static RDLCReportViewer.Controllers.MySessionTestController;
 
 namespace RDLCReportViewer.Reports.viewers
 {
@@ -52,8 +53,9 @@ namespace RDLCReportViewer.Reports.viewers
 
 
             #region Processing Report Data
-
+            var ddd = Session["MyVar"] as Student;
             #endregion
+            data.Add(new Employee() { Id = ddd.studentID, Address = ddd.studentAddress, Name = ddd.studentName });
             ReportDataSource dataSource = new ReportDataSource("DsEmployee", data);
             rvEmployeeInfo.LocalReport.DataSources.Add(dataSource);
             
